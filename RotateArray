@@ -39,3 +39,7 @@ Compilation Mistakes:
 Runtime Mistake:
   Had my indexes flipped so I was not rotating
   did not add my new values to the old array correctly
+  
+Submission Details:
+  Runtime: 1 ms, faster than 46.69% of Java online submissions for Rotate Array.
+  Memory Usage: 39.2 MB, less than 12.49% of Java online submissions for Rotate Array.
