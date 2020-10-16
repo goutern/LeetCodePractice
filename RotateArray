@@ -1,0 +1,41 @@
+Problem:
+Given an array, rotate the array to the right by k steps, where k is non-negative.
+
+Example:
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+
+Initial thoughts:
+possibly remove items and then wrap around when no items left
+Maybe put the array into a stack starting at the ith index and then unstack
+Using more memory make the problem easier
+  ie we could just new arrays for each roate instead od replacing
+the rotation number is the same number to increase the index by
+      then mod index by length will give new index
+
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int[] numsRotated = new int[nums.length]; //create an array for storing our rotated values
+        int numIndex = 0; //make it a little easier to understand what we are doing
+        for(int i = 0; i < nums.length; i++){
+            numIndex = (i + k)%nums.length;
+            numsRotated[numIndex] = nums[i];
+        }
+        for(int i = 0; i < nums.length; i++){
+            nums[i] = numsRotated[i];
+        }
+    }
+}
+
+Compilation Mistakes:
+  Wrong iterator variable in for loop(fixed)
+  put a return when it was a void method
+  
+Runtime Mistake:
+  Had my indexes flipped so I was not rotating
+  did not add my new values to the old array correctly
