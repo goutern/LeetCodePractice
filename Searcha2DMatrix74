@@ -1,0 +1,56 @@
+Problem: 74
+Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+
+    Integers in each row are sorted from left to right.
+    The first integer of each row is greater than the last integer of the previous row.
+
+Examples:
+Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,50]], target = 3
+Output: true
+
+Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,50]], target = 13
+Output: false
+
+Input: matrix = [], target = 0
+Output: false
+
+Initial Thoughts:
+  Matrix is sorted and ordered
+  Binary search works if information is ordered
+  naive solution of double for loops 
+
+Naive Solution:
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix.length == 0 || matrix[0].length == 0){
+            return false;
+        }
+        for(int line = 0; line < matrix.length; line++){
+            if(matrix[line][0] <= target && matrix[line][matrix[line].length -1] >= target){
+                for(int i : matrix[line]){
+                    if(i == target){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+}
+
+Compile Mistakes:
+    wrote a python esq for loop
+    wrote length statement inccorectly
+    missed an if paren
+    missed a closing brace
+    incrementing wrong outervariable
+    looping on worng array in innner loop
+    
+Runtime Errors:
+    wrong end index of matrix array in the first if conditional
+    did not check empty case
+    
+Solution Accepted
+    Runtime: 0 ms
+    Memory Usage: 38.3 MB
+  
