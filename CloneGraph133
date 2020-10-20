@@ -1,0 +1,29 @@
+133. Clone Graph
+
+Daily Coding Challenge
+deep clone a node graph
+
+class Solution {
+    HashMap<Integer, Node> newNodes = new HashMap<Integer, Node>();
+    public Node cloneGraph(Node node) {
+        if(node == null){
+            return node;
+        }
+        if(newNodes.get(node.val) != null){
+            return (newNodes.get(node.val));
+        }
+        
+        Node newNode = new Node(node.val, new ArrayList());
+        newNodes.put(node.val, newNode);
+        for(Node neighbor : node.neighbors){
+
+            newNode.neighbors.add(cloneGraph(neighbor));
+            
+        }
+        return newNode;
+    }
+}
+
+
+Runtime: 25 ms
+Memory Usage: 39.1 MB
