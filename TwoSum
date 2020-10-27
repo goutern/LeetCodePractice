@@ -1,0 +1,30 @@
+TwoSum problem 1
+
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        
+        
+        put nums in hash map
+        target is the complement - the num in hashmap maybee
+        check if it exists
+        
+        """
+        dictNums = {}
+        for i in range(0, len(nums)):
+            dictNums[nums[i]] = i
+            
+            
+        for i in range (0, len(nums)):
+            complement = target - nums[i]
+            j = dictNums.get(complement)
+            if j is not None and i != j:
+                break
+        return [i,j]
+        
+Runtime: 28 ms, faster than 97.69% of Python online submissions for Two Sum.
+Memory Usage: 14.9 MB, less than 43.66% of Python online submissions for Two Sum.
